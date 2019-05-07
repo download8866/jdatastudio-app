@@ -24,7 +24,8 @@ const schema = [
         showInList: true,
         showInShow: true,
         showInEdit: true,
-        showInCreate: true
+        showInCreate: true,
+        showInFilter: true
       }
     ]
   },
@@ -72,7 +73,9 @@ const schema = [
         component: "Text",
         showInList: true,
         showInShow: true,
-        sortable: true
+        sortable: true,
+        showInFilter: true,
+        alwaysOn: true
       },
       {
         name: "title",
@@ -92,20 +95,12 @@ const schema = [
         showInList: true,
         showInShow: true,
         showInEdit: true,
-        showInCreate: true
+        showInCreate: true,
+        showInFilter: true
       }
     ]
   }
 ];
-
-// const fetchResources = permissions => {
-//   let resources = [];
-//   schemas.map(resource =>
-//     resources.push(<Resource name={resource.name} list={CRUDList} />)
-//   );
-//   console.log(resources);
-//   return resources;
-// };
 
 const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 

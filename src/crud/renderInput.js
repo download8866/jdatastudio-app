@@ -67,7 +67,7 @@ const renderReferenceInput = field => (
     key={field.name}
     label={field.label}
     source={field.name}
-    reference={"api/" + field.reference}
+    reference={field.reference}
     validate={generateValidators(field)}
   >
     <AutocompleteInput optionText={field.referenceOptionText} />
