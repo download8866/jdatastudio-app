@@ -75,7 +75,6 @@ const schema = [
     name: "posts",
     label: "Posts",
     r: true,
-    c: true,
     u: true,
     d: true,
     fields: [
