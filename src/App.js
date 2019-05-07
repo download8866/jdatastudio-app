@@ -7,6 +7,10 @@ const schema = [
     id: "e1",
     name: "users",
     label: "Users",
+    r: true,
+    c: true,
+    u: true,
+    d: true,
     fields: [
       {
         name: "id",
@@ -33,6 +37,10 @@ const schema = [
     id: "e3",
     name: "todos",
     label: "Todos",
+    r: true,
+    c: true,
+    u: true,
+    d: true,
     fields: [
       {
         name: "id",
@@ -66,6 +74,10 @@ const schema = [
     id: "e2",
     name: "posts",
     label: "Posts",
+    r: true,
+    c: true,
+    u: true,
+    d: true,
     fields: [
       {
         name: "id",
@@ -110,10 +122,10 @@ const App = () => (
       <Resource
         name={resource.name}
         options={resource}
-        list={CRUDList}
-        edit={CRUDEdit}
-        create={CRUDCreate}
-        show={CRUDShow}
+        list={resource.r ? CRUDList : null}
+        edit={resource.u ? CRUDEdit : null}
+        create={resource.c ? CRUDCreate : null}
+        show={resource.r ? CRUDShow : null}
       />
     ))}
   </Admin>

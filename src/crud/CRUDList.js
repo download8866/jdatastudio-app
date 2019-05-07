@@ -27,7 +27,7 @@ export const CRUDList = props => {
       <Datagrid>
         {resource.fields.filter(field => field.showInList).map(renderField)}
         <ShowButton />
-        <EditButton />
+        {resource.e ? <EditButton /> : null}
       </Datagrid>
     </List>
   );
