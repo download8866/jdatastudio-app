@@ -1,12 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   Datagrid,
   List,
   Pagination,
   ShowButton,
   EditButton,
-  Filter,
-  alwaysOn
+  Filter
 } from "react-admin";
 
 import { renderField } from "./renderField";
@@ -23,11 +22,12 @@ export const CRUDList = props => {
       pagination={<CRUDPagination />}
       filters={<CRUDFilter {...props} />}
       title={resource.label}
+      bulkActionButtons={false}
     >
       <Datagrid>
         {resource.fields.filter(field => field.showInList).map(renderField)}
         <ShowButton />
-        {resource.u ? <EditButton /> : null}
+        {resource.u ? <EditButton /> : <Fragment />}
       </Datagrid>
     </List>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "./dataProvider";
 import { CRUDCreate, CRUDEdit, CRUDList, CRUDShow } from "./crud";
@@ -119,12 +119,13 @@ const App = () => (
   <Admin dataProvider={dataProvider}>
     {schema.map(resource => (
       <Resource
+        key={resource.id}
         name={resource.name}
         options={resource}
-        list={resource.r ? CRUDList : null}
-        edit={resource.u ? CRUDEdit : null}
-        create={resource.c ? CRUDCreate : null}
-        show={resource.r ? CRUDShow : null}
+        list={resource.r ? CRUDList : <Fragment />}
+        edit={resource.u ? CRUDEdit : <Fragment />}
+        create={resource.c ? CRUDCreate : <Fragment />}
+        show={resource.r ? CRUDShow : <Fragment />}
       />
     ))}
   </Admin>
