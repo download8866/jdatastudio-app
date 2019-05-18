@@ -1,133 +1,44 @@
 import React, { Fragment } from "react";
 import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "./dataProvider";
+import { authProvider, httpClient } from "./authProvider";
 import { CRUDCreate, CRUDEdit, CRUDList, CRUDShow } from "./crud";
-const schema = [
-  {
-    id: "e1",
-    name: "users",
-    label: "Users",
-    r: true,
-    c: true,
-    u: true,
-    d: true,
-    fields: [
-      {
-        name: "id",
-        label: "ID",
-        component: "Text",
-        showInList: true,
-        showInShow: true,
-        showInEdit: true,
-        showInCreate: true
-      },
-      {
-        name: "name",
-        label: "Name",
-        component: "Text",
-        showInList: true,
-        showInShow: true,
-        showInEdit: true,
-        showInCreate: true,
-        showInFilter: true
+const url = "https://www.jdatastudio.com";
+const fetchResources = permissions =>
+  httpClient(url + "/schemas")
+    .then(response => {
+      return response.json;
+    })
+    .then(json => {
+      let resources = [];
+      json.map(resource =>
+        resources.push(
+          <Resource
+            key={resource.id}
+            name={"api/" + resource.eid}
+            options={resource}
+            list={resource.r ? CRUDList : <Fragment />}
+            edit={resource.u ? CRUDEdit : <Fragment />}
+            create={resource.c ? CRUDCreate : null}
+            show={resource.r ? CRUDShow : <Fragment />}
+          />
+        )
+      );
+      return resources;
+    })
+    .catch(error => {
+      if (error.status === 401) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("permissions");
+        window.location.replace("/#/login");
       }
-    ]
-  },
-  {
-    id: "e3",
-    name: "todos",
-    label: "Todos",
-    r: true,
-    c: true,
-    u: true,
-    d: true,
-    fields: [
-      {
-        name: "id",
-        label: "ID",
-        component: "Text",
-        showInList: true,
-        showInShow: true,
-        sortable: true
-      },
-      {
-        name: "title",
-        label: "title",
-        component: "Text",
-        showInList: true,
-        showInShow: true,
-        showInEdit: true,
-        showInCreate: true
-      },
-      {
-        name: "completed",
-        label: "completed",
-        component: "Boolean",
-        showInList: true,
-        showInShow: true,
-        showInEdit: true,
-        showInCreate: true
-      }
-    ]
-  },
-  {
-    id: "e2",
-    name: "posts",
-    label: "Posts",
-    r: true,
-    u: true,
-    d: true,
-    fields: [
-      {
-        name: "id",
-        label: "ID",
-        component: "Text",
-        showInList: true,
-        showInShow: true,
-        sortable: true,
-        showInFilter: true,
-        alwaysOn: true
-      },
-      {
-        name: "title",
-        label: "title",
-        component: "Text",
-        showInList: true,
-        showInShow: true,
-        showInEdit: true,
-        showInCreate: true
-      },
-      {
-        name: "userId",
-        label: "userId",
-        component: "Reference",
-        reference: "users",
-        referenceOptionText: "name",
-        showInList: true,
-        showInShow: true,
-        showInEdit: true,
-        showInCreate: true,
-        showInFilter: true
-      }
-    ]
-  }
-];
+    });
 
-const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+const dataProvider = jsonServerProvider(url, httpClient);
 
 const App = () => (
-  <Admin dataProvider={dataProvider}>
-    {schema.map(resource => (
-      <Resource
-        key={resource.id}
-        name={resource.name}
-        options={resource}
-        list={resource.r ? CRUDList : <Fragment />}
-        edit={resource.u ? CRUDEdit : <Fragment />}
-        create={resource.c ? CRUDCreate : <Fragment />}
-        show={resource.r ? CRUDShow : <Fragment />}
-      />
-    ))}
+  <Admin authProvider={authProvider} dataProvider={dataProvider}>
+    {fetchResources}
   </Admin>
 );
 

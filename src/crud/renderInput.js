@@ -39,6 +39,7 @@ const renderTextInput = field => (
     type={field.type}
     defaultValue={field.defaultValue}
     validate={generateValidators(field)}
+    resettable
   />
 );
 
@@ -67,7 +68,7 @@ const renderReferenceInput = field => (
     key={field.name}
     label={field.label}
     source={field.name}
-    reference={field.reference}
+    reference={"api/" + field.reference}
     validate={generateValidators(field)}
   >
     <AutocompleteInput optionText={field.referenceOptionText} />

@@ -34,6 +34,16 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
   const convertDataRequestToHTTP = (type, resource, params) => {
     let url = "";
     const options = {};
+
+    /**
+     * a=1&a=2  change to a_in=1,2
+     */
+    for (let key in params.filter) {
+      if (Array.isArray(params.filter[key])) {
+        params.filter[key + "_in"] = params.filter[key].join(",");
+        delete params.filter[key];
+      }
+    }
     switch (type) {
       case GET_LIST: {
         const { page, perPage } = params.pagination;
@@ -45,6 +55,7 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
           _start: (page - 1) * perPage,
           _end: page * perPage
         };
+
         url = `${apiUrl}/${resource}?${stringify(query)}`;
         break;
       }

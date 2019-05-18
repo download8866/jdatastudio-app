@@ -7,7 +7,7 @@ import {
   fetchUtils
 } from "react-admin";
 
-const url = "https://jdatastudio.com";
+const url = "https://www.jdatastudio.com";
 /**
  * add token before request
  * @param url

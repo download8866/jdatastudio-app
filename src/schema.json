@@ -1,0 +1,154 @@
+[
+  {
+    "id": "e1",
+    "name": "users",
+    "label": "Users",
+    "r": true,
+    "c": false,
+    "u": false,
+    "d": true,
+    "related": [
+      {
+        "id": "e2",
+        "name": "posts",
+        "label": "Posts",
+        "relatedTarget": "userId",
+        "r": true,
+        "u": true,
+        "d": true,
+        "fields": [
+          {
+            "name": "id",
+            "label": "ID",
+            "component": "Text",
+            "showInList": true,
+            "showInShow": true,
+            "sortable": true,
+            "showInFilter": true,
+            "alwaysOn": true
+          },
+          {
+            "name": "title",
+            "label": "title",
+            "component": "Text",
+            "showInList": true,
+            "showInShow": true,
+            "showInEdit": true,
+            "showInCreate": true
+          },
+          {
+            "name": "userId",
+            "label": "userId",
+            "component": "Reference",
+            "reference": "users",
+            "referenceOptionText": "name",
+            "showInList": true,
+            "showInShow": true,
+            "showInEdit": true,
+            "showInCreate": true,
+            "showInFilter": true
+          }
+        ]
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "label": "ID",
+        "component": "Text",
+        "showInList": true,
+        "showInShow": true,
+        "showInEdit": true,
+        "showInCreate": true
+      },
+      {
+        "name": "name",
+        "label": "Name",
+        "component": "Text",
+        "showInList": true,
+        "showInShow": true,
+        "showInEdit": true,
+        "showInCreate": true,
+        "showInFilter": true
+      }
+    ]
+  },
+  {
+    "id": "e3",
+    "name": "todos",
+    "label": "Todos",
+    "r": true,
+    "c": true,
+    "u": true,
+    "d": true,
+    "fields": [
+      {
+        "name": "id",
+        "label": "ID",
+        "component": "Text",
+        "showInList": true,
+        "showInShow": true,
+        "sortable": true
+      },
+      {
+        "name": "title",
+        "label": "title",
+        "component": "Text",
+        "showInList": true,
+        "showInShow": true,
+        "showInEdit": true,
+        "showInCreate": true
+      },
+      {
+        "name": "completed",
+        "label": "completed",
+        "component": "Boolean",
+        "showInList": true,
+        "showInShow": true,
+        "showInEdit": true,
+        "showInCreate": true
+      }
+    ]
+  },
+  {
+    "id": "e2",
+    "name": "posts",
+    "label": "Posts",
+    "r": true,
+    "u": true,
+    "d": true,
+    "fields": [
+      {
+        "name": "id",
+        "label": "ID",
+        "component": "Text",
+        "showInList": true,
+        "showInShow": true,
+        "sortable": true,
+        "showInFilter": true,
+        "alwaysOn": true
+      },
+      {
+        "name": "title",
+        "label": "title",
+        "component": "Text",
+        "showInList": true,
+        "showInShow": true,
+        "showInEdit": true,
+        "showInCreate": true
+      },
+      {
+        "name": "userId",
+        "label": "userId",
+        "component": "Reference",
+        "reference": "users",
+        "referenceOptionText": "name",
+        "showInList": true,
+        "showInShow": true,
+        "showInEdit": true,
+        "showInCreate": true,
+        "showInFilter": true
+      }
+    ]
+  }
+]

@@ -62,7 +62,7 @@ const renderReferenceField = field => (
     key={field.name}
     label={field.label}
     source={field.name}
-    reference={field.reference}
+    reference={"api/" + field.reference}
     linkType="show"
     sortable={field.sortable}
   >
