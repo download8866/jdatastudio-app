@@ -4,6 +4,7 @@
 
 https://www.jdatastudio.com admin admin
 
+![snapshort](https://github.com/data-server/jdatastudio-app/blob/master/image/snapshort.png)
 
 ### api-doc
 
