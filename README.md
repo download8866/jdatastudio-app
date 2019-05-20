@@ -4,11 +4,10 @@
 
 https://www.jdatastudio.com admin admin
 
-![输入图片说明](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/snapshort.png "在这里输入图片标题")
-![snapshort](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/snapshort.png)
+![snapshot](https://images.gitee.com/uploads/images/2019/0520/173729_53bb083a_5023091.png "snapshot.png")
 
 
-![交流群](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/image.png)
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0520/174004_c29c63a0_5023091.png "下载 (2).png")
 
 ### api-doc
 
