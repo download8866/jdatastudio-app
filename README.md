@@ -4,6 +4,7 @@
 
 https://www.jdatastudio.com admin admin
 
+![输入图片说明](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/snapshort.png "在这里输入图片标题")
 ![snapshort](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/snapshort.png)
 
 
