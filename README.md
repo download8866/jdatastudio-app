@@ -1,6 +1,6 @@
 # jdatastudio app
 
-## 基于数据库生成的数据后端RESTFul Api 服务
+## 3 mins to build restful api base on your database
 
 https://www.jdatastudio.com admin admin
 
