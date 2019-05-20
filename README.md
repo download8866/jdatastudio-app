@@ -7,7 +7,7 @@ https://www.jdatastudio.com admin admin
 
 ### api-doc
 
-[https://www.jdatastudio.com/swagger-ui.html][swagger-ui]
+https://www.jdatastudio.com/swagger-ui.html
 
 ### apis
 ```
