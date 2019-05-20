@@ -4,10 +4,10 @@
 
 https://www.jdatastudio.com admin admin
 
-![snapshort](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/snapshort.png "snapshort")
+![snapshort](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/snapshort.png)
 
 
-![交流群](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/image.png "交流群")
+![交流群](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/image.png)
 
 ### api-doc
 
