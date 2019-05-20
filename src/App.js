@@ -3,6 +3,7 @@ import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "./dataProvider";
 import { authProvider, httpClient } from "./authProvider";
 import { CRUDCreate, CRUDEdit, CRUDList, CRUDShow } from "./crud";
+import Login from "./Login";
 const url = "https://www.jdatastudio.com";
 const fetchResources = permissions =>
   httpClient(url + "/schemas")
@@ -36,8 +37,13 @@ const fetchResources = permissions =>
 
 const dataProvider = jsonServerProvider(url, httpClient);
 
+/** admin admin */
 const App = () => (
-  <Admin authProvider={authProvider} dataProvider={dataProvider}>
+  <Admin
+    loginPage={Login}
+    authProvider={authProvider}
+    dataProvider={dataProvider}
+  >
     {fetchResources}
   </Admin>
 );
