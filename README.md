@@ -7,7 +7,7 @@ https://www.jdatastudio.com admin admin
 ![snapshort](https://github.com/data-server/jdatastudio-app/blob/master/image/snapshort.png)
 
 ## 交流群
-![](https://github.com/data-server/jdatastudio-app/blob/master/image/image.png)
+![](https://gitee.com/dbrest/jdatastudio-app/blob/master/image/image.png)
 
 ### api-doc
 
