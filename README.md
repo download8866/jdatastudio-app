@@ -1,39 +1,41 @@
-# jdatastudio-app
+# jdatastudio app
 
-## create a react-admin app from schema json.
+## 基于数据库生成的数据后端RESTFul Api 服务
 
-### resource define
+https://www.jdatastudio.com admin admin
 
-| property | description           |
-| -------- | --------------------- |
-| name     | name of the resource  |
-| label    | label of the resource |
 
-### field define
+### api-doc
 
-| property     | description                                 |
-| ------------ | ------------------------------------------- |
-| name         | resource field                              |
-| label        | label show in list、edit、show、create page |
-| component    | Text、 Boolean、Select、Reference           |
-| showInList   | display in list page                        |
-| showInShow   | display in show page                        |
-| showInEdit   | display in edit page                        |
-| showInCreate | display in create page                      |
-| showInFilter | can filter                                  |
-| sortable     | field sortable config in list page          |
-| defaultValue | default value in create page                |
+[https://www.jdatastudio.com/swagger-ui.html][swagger-ui]
 
-### component define
+### apis
+```
+GET    /students
+GET    /students/1
+POST   /students
+PUT    /students/1
+```
+### filter
 
-| property  | description                                                                                                                              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Text      |                                                                                                                                          |
-| Boolean   |                                                                                                                                          |
-| Select    | choices: [{ id: 'programming', name: 'Programming' },{ id: 'lifestyle', name: 'Lifestyle' },{ id: 'photography', name: 'Photography' },] |
-| Reference | reference: "users", referenceOptionText: "name",                                                                                         |
+```
+GET /students?name=nick&grade=5
+GET /students?id_in=1,2
+```
 
-### demo
+### Paginate
+
+```
+GET /students?_start=0&_end=10
+```
+
+### Sort
+
+```
+GET /students?_order=ASC&_sort=score
+```
+
+### schema
 
 ```json
 [
