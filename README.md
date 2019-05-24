@@ -96,6 +96,6 @@ mobile          手机
 card            银行卡号
 id              身份证号
 ```
-## 后台配置 https://www.jdatastudio.com
+## 后台配置 https://www.jdatastudio.com admin admin
 ## 接口文档 https://www.jdatastudio.com/swagger-ui.html
 ## 微信号 gongxinong
