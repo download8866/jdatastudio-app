@@ -1,17 +1,6 @@
-# jdatastudio app
-
-## 3 mins to build restful api base on your database
-
-https://www.jdatastudio.com admin admin
-
-![snapshot](https://images.gitee.com/uploads/images/2019/0520/173729_53bb083a_5023091.png "snapshot.png")
-
-
-![输入图片说明](https://images.gitee.com/uploads/images/2019/0520/174004_c29c63a0_5023091.png "下载 (2).png")
-
-### api-doc
-
-https://www.jdatastudio.com/swagger-ui.html
+# 从阿里云数据库搭建restful api和中后台应用
+    
+## 从数据源构建通用restful api
 
 ### apis
 ```
@@ -26,115 +15,87 @@ PUT    /students/1
 GET /students?name=nick&grade=5
 GET /students?id_in=1,2
 ```
-
-### Paginate
+### paginate
 
 ```
 GET /students?_start=0&_end=10
 ```
 
-### Sort
+### sort
 
 ```
 GET /students?_order=ASC&_sort=score
 ```
 
-### schema
+### operators
 
-```json
-[
-  {
-    "id": "e1",
-    "name": "users",
-    "label": "Users",
-    "fields": [
-      {
-        "name": "id",
-        "label": "ID",
-        "component": "Text",
-        "showInList": true,
-        "showInShow": true,
-        "showInEdit": true,
-        "showInCreate": true
-      },
-      {
-        "name": "name",
-        "label": "Name",
-        "component": "Text",
-        "showInList": true,
-        "showInShow": true,
-        "showInEdit": true,
-        "showInCreate": true
-      }
-    ]
-  },
-  {
-    "id": "e3",
-    "name": "todos",
-    "label": "Todos",
-    "fields": [
-      {
-        "name": "id",
-        "label": "ID",
-        "component": "Text",
-        "showInList": true,
-        "showInShow": true,
-        "sortable": true
-      },
-      {
-        "name": "title",
-        "label": "title",
-        "component": "Text",
-        "showInList": true,
-        "showInShow": true,
-        "showInEdit": true,
-        "showInCreate": true
-      },
-      {
-        "name": "completed",
-        "label": "completed",
-        "component": "Boolean",
-        "showInList": true,
-        "showInShow": true,
-        "showInEdit": true,
-        "showInCreate": true
-      }
-    ]
-  },
-  {
-    "id": "e2",
-    "name": "posts",
-    "label": "Posts",
-    "fields": [
-      {
-        "name": "id",
-        "label": "ID",
-        "component": "Text",
-        "showInList": true,
-        "showInShow": true,
-        "sortable": true
-      },
-      {
-        "name": "title",
-        "label": "title",
-        "component": "Text",
-        "showInList": true,
-        "showInShow": true,
-        "showInEdit": true,
-        "showInCreate": true
-      },
-      {
-        "name": "userId",
-        "label": "userId",
-        "component": "Reference",
-        "reference": "users",
-        "referenceOptionText": "name",
-        "showInList": true,
-        "showInShow": true,
-        "showInEdit": true,
-        "showInCreate": true
-      }
-    ]
-  }
-]
 ```
+eq      等于 name=nick
+gte     大于等于 grade_gte=5
+gt      大于 grade_gt=5
+lte     小于等于 grade_lte=5
+lt      小于 grade_lt=5
+like    小于 name_like=ni
+in      存在于 name_in=nick,paul
+```
+
+## 配置schema，生成前端页面
+
+### 数据源(超级管理员维护)
+```
+dbType    数据源类型(mysql,mongodb,elasticsearch)
+url       数据源连接 jdbc:mysql://172.19.152.132:3306/student
+username  用户名 root
+password  密码 ******
+```
+### 表
+```
+name    表名
+label   标签
+```
+### 字段
+```
+name                字段名
+label               字段标签
+component           组件类型
+mainField           是否主字段 /students?q=nick 将按此字段检索
+partOfPrimaryKey    是否联合主键，表中包含多个主键时，将按__分隔符拼接id的值
+sensitiveType       脱敏类型
+
+showInList          是否展示在列表页
+sortable            是否支持排序
+showInShow          是否展示在详情页
+
+showInFilter        是否以此字段过滤
+alwaysOn            前端是否总展示
+multiFilter         是否支持多选过滤
+
+showInEdit          是否展示在编辑页
+showInCreate        是否展示在新建页
+maxLength           最大长度(校验)
+required            是否必填
+defaultValue        默认值
+dbColumnType        数据库字段类型(varchar,int...)
+```
+
+#### 组件类型
+
+```
+Text	    文本
+Number	    数字
+Select	    选择
+Reference   引用
+Date	    日期
+```
+#### 脱敏类型
+
+```
+nonsensitive    非敏感数据
+sensitive       其他敏感数据
+mobile          手机
+card            银行卡号
+id              身份证号
+```
+## 后台配置 https://www.jdatastudio.com
+## 接口文档 https://www.jdatastudio.com/swagger-ui.html
+## 微信号 gongxinong
