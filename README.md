@@ -1,4 +1,4 @@
-# 从阿里云数据库搭建restful api和中后台应用
+# 一站式0编码从阿里云数据库搭建restful api和中后台管理系统
     
 ## 从数据源构建通用restful api
 
@@ -98,4 +98,4 @@ id              身份证号
 ```
 ## 后台配置 https://www.jdatastudio.com admin admin
 ## 接口文档 https://www.jdatastudio.com/swagger-ui.html
-## 微信号 gongxinong
+## 申请新空间请联系微信号 gongxinong
